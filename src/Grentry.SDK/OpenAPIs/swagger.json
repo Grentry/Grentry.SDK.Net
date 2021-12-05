@@ -1,0 +1,240 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Gentry.Device.ControllerApi",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/Camera/photo": {
+      "get": {
+        "tags": [
+          "Camera"
+        ],
+        "summary": "Take a photo with the camera",
+        "operationId": "GetPhoto",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CameraImageResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CameraImageResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CameraImageResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Relay": {
+      "post": {
+        "tags": [
+          "Relay"
+        ],
+        "summary": "Triggers the selected relay (relay numbers starting from 0) for the selected time in miliseconds",
+        "operationId": "TriggerRelay",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RelayTriggerDto"
+                  }
+                ],
+                "description": "",
+                "nullable": true
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RelayTriggerDto"
+                  }
+                ],
+                "description": "",
+                "nullable": true
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RelayTriggerDto"
+                  }
+                ],
+                "description": "",
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Relay/Open/{relayNr}": {
+      "post": {
+        "tags": [
+          "Relay"
+        ],
+        "summary": "Opens the selected relay (relay numbers starting from 0)",
+        "operationId": "OpenRelay",
+        "parameters": [
+          {
+            "name": "relayNr",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Relay/Close/{relayNr}": {
+      "post": {
+        "tags": [
+          "Relay"
+        ],
+        "summary": "Closes the selected relay (relay numbers starting from 0)",
+        "operationId": "CloseRelay",
+        "parameters": [
+          {
+            "name": "relayNr",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Serial": {
+      "post": {
+        "tags": [
+          "Serial"
+        ],
+        "summary": "Write Data to the serial port",
+        "operationId": "Write",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SerialWriteDto"
+                  }
+                ],
+                "description": "",
+                "nullable": true
+              }
+            },
+            "text/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SerialWriteDto"
+                  }
+                ],
+                "description": "",
+                "nullable": true
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SerialWriteDto"
+                  }
+                ],
+                "description": "",
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CameraImageResponseDto": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelayTriggerDto": {
+        "type": "object",
+        "properties": {
+          "relayNr": {
+            "type": "integer",
+            "description": "Number of the relay to trigger starting from 0",
+            "format": "int32"
+          },
+          "milliseconds": {
+            "type": "integer",
+            "description": "Milliseconds how long the relay should be triggered",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SerialWriteDto": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

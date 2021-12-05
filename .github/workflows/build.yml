@@ -1,0 +1,23 @@
+name: Build and push to nuget
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build
+      run: |
+      cd src
+      dotnet build --configuration Release
+    - name: Push nuget 
+      run: dotnet nuget push "**/*.nupkg" --source https://nuget.pkg.github.com/acraven/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+       
+  nuget:

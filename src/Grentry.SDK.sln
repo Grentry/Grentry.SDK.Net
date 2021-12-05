@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grentry.SDK", "Grentry.SDK\Grentry.SDK.csproj", "{4FBF0121-E139-47AD-8BBD-713069A31BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grentry.SDK.TestConsole", "Grentry.SDK.TestConsole\Grentry.SDK.TestConsole.csproj", "{6A158038-F2C2-41F6-AF58-AE753F345D79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FBF0121-E139-47AD-8BBD-713069A31BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FBF0121-E139-47AD-8BBD-713069A31BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FBF0121-E139-47AD-8BBD-713069A31BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FBF0121-E139-47AD-8BBD-713069A31BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A158038-F2C2-41F6-AF58-AE753F345D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A158038-F2C2-41F6-AF58-AE753F345D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A158038-F2C2-41F6-AF58-AE753F345D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A158038-F2C2-41F6-AF58-AE753F345D79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C596274A-6858-4665-AEBD-5E5E2EFF3C36}
+	EndGlobalSection
+EndGlobal
