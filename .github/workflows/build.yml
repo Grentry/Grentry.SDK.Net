@@ -20,4 +20,3 @@ jobs:
     - name: Push nuget 
       run: dotnet nuget push "**/*.nupkg" --source https://nuget.pkg.github.com/acraven/index.json --api-key ${{ secrets.NUGET_API_KEY }}
        
-  nuget:
